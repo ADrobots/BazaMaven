@@ -4,16 +4,21 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.imageio.stream.FileImageInputStream;
+import javax.swing.text.html.HTMLDocument;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
-public class ParseCompany {
-Map<String, Company> mapCompany=new HashMap<>();
-
-
+public class ParseCompany{
+/*Map<String, Company> mapCompany=new HashMap<>();*/
     /*Map<String, Company> parce(List<String> list){
     String[] endLine=null;
     list.remove(0);
@@ -55,6 +60,41 @@ Map<String, Company> mapCompany=new HashMap<>();
 
 
     //Apache POI 3.11;
+    public static Map<String, Company> mapCompany=new HashMap<>();
+    public static Map<String, Company> parce(String fileName) throws Exception, IOException {
+
+        String result = "";
+        InputStream inputStream = null;
+        XSSFWorkbook workbook = null;
+
+        inputStream = new FileInputStream(fileName);
+        workbook = new XSSFWorkbook(inputStream);
+
+        Sheet sheet = workbook.getSheetAt(0);
+        Iterator<Row> it = sheet.iterator();
+
+        if (it.hasNext()) it.next();//пропускаем шапку таблицы
+        while (it.hasNext()) {
+
+            Company company=new Company();
+            Row row = it.next();
+            company.setCompanyId((int)(row.getCell(0).getNumericCellValue()));
+            company.setCompanyName(row.getCell(1).getStringCellValue());
+            mapCompany.put(company.getCompanyName(), company);
+            }
+
+        for (Company map:mapCompany.values()) {                                       //перебор значений из hashmap
+            System.out.print("id "+map.getCompanyId()+"\n");
+            System.out.println("Наименование: "+map.getCompanyName()+" ");
+            System.out.println("Инн: "+map.getCompanyInn()+" ");
+            System.out.println("Почтовый адрес: "+map.getCompanyMailingAdress()+" ");
+            System.out.println("Email: "+map.getCompanyEmail()+" ");
+            System.out.println("Телефон: "+map.getCompanyNamber()+" ");
+        }
+
+        return mapCompany;
+    }
+
 
 
 
