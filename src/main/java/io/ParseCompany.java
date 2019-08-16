@@ -1,23 +1,18 @@
+package io;
+
 import db.Company;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import javax.imageio.stream.FileImageInputStream;
-import javax.swing.text.html.HTMLDocument;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-public class ParseCompany{
+public class ParseCompany {
 /*Map<String, Company> mapCompany=new HashMap<>();*/
     /*Map<String, Company> parce(List<String> list){
     String[] endLine=null;
@@ -61,6 +56,7 @@ public class ParseCompany{
 
     //Apache POI 3.11;
     public static Map<String, Company> mapCompany=new HashMap<>();
+
     public static Map<String, Company> parce(String fileName) throws Exception, IOException {
 
         String result = "";

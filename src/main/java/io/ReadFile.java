@@ -8,6 +8,7 @@ import java.util.List;
 
 public class ReadFile {
 
+
 public List<String> readFile(Path path){
     try {
         return Files.readAllLines(path);
