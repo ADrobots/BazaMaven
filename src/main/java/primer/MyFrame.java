@@ -16,6 +16,7 @@ public class MyFrame extends javax.swing.JFrame {
     private final JButton button;         // and a "send" button
 
     public MyFrame() {
+        super("Рассылка");
 
         // first, lets create the containers:
         // the splitPane devides the window in two components (here: top and bottom)
@@ -36,15 +37,15 @@ public class MyFrame extends javax.swing.JFrame {
         button = new JButton("send");    // and a button at the right, to send the text
 
         // now lets define the default size of our window and its layout:
-        setPreferredSize(new Dimension(400, 400));     // let open the window with a default size of 400x400 pixels
+        setPreferredSize(new Dimension(750, 750));     // let open the window with a default size of 400x400 pixels
         // the contentPane is the container that holds all our components
         getContentPane().setLayout(new GridLayout());  // the default GridLayout is like a grid with 1 column and 1 row,
         // we only add one element to the window itself
         getContentPane().add(splitPane);               // due to the GridLayout, our splitPane will now fill the whole window
 
         // let configure our splitPane:
-        splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);  // we want it to split the window verticaly
-        splitPane.setDividerLocation(200);                    // the initial position of the divider is 200 (our window is 400 pixels high)
+        splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);  // we want it to split the window verticaly
+        splitPane.setDividerLocation(450);                    // the initial position of the divider is 200 (our window is 400 pixels high)
         splitPane.setTopComponent(topPanel);                  // at the top we want our "topPanel"
         splitPane.setBottomComponent(bottomPanel);            // and at the bottom we want our "bottomPanel"
 
