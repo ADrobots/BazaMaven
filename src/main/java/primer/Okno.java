@@ -10,10 +10,10 @@ import java.awt.*;
 import java.util.Map;
 
 public class Okno extends JFrame{
-    static String path="C:\\Users\\work\\Desktop\\Company.xls".replace("\\","/");
+    static String path="C:\\Users\\tony\\Desktop\\Company.xlsx".replace("\\","/");
     private DefaultListModel<String> dlm=new DefaultListModel<>();
-    private JLabel label;
-    private JLabel inf;
+    private JLabel label=new JLabel();
+    private JLabel labelEmail=new JLabel();
 
 
     private JTextField input=new JTextField();
@@ -28,40 +28,39 @@ public class Okno extends JFrame{
         Map<String, Company> companyMap = ParseCompany.parce(path);
         for (Company c:companyMap.values()) {
             dlm.add(0, c.getCompanyName());
+
+
         }
-
-
-        inf=new JLabel();
-        inf.setText(companyMap.toString());
 
         /*for (Company c:companyMap.values()) {
             labelOnHashMap.append(c.getCompanyName()+"\n"+c.getCompanyEmail()+"\n"+c.getCompanyNamber());
 
         }*/
         JList<String> list=new JList<String>(dlm);
-        System.out.println(list.getSelectedIndex());
-
+        System.out.println(dlm.get(0));
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.addListSelectionListener(
                 new ListSelectionListener() {
                     @Override
                     public void valueChanged(ListSelectionEvent e) {
                         Object listElement=list.getSelectedValue();
-                        System.out.println(listElement);
+                        for (Company c:companyMap.values()) {
+                            if (listElement.toString()==c.getCompanyName()){
+                                label.setText("Организация "+c.getCompanyName());
+                                labelEmail.setText("Эл.почта "+c.getCompanyEmail());
+                            }
+                        }
+
+
                     }
                 }
         );
 
 
-
-
-
-        label=new JLabel();
-
-        container.setLayout(new GridLayout(2,3));
+        container.setLayout(new GridLayout(3,1));
         container.add(new JScrollPane(list));
-        container.add(label, BorderLayout.SOUTH);
-        container.add(new JScrollPane(inf));
+        container.add(label, BorderLayout.CENTER);
+        container.add(labelEmail, BorderLayout.CENTER);
 
 
 

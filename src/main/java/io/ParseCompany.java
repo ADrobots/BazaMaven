@@ -76,6 +76,9 @@ public class ParseCompany {
             Row row = it.next();
             company.setCompanyId((int)(row.getCell(0).getNumericCellValue()));
             company.setCompanyName(row.getCell(1).getStringCellValue());
+            company.setCompanyInn((long)(row.getCell(2).getNumericCellValue()));
+            company.setCompanyMailingAdress(row.getCell(3).getStringCellValue());
+            company.setCompanyEmail(row.getCell(4).getStringCellValue());
             mapCompany.put(company.getCompanyName(), company);
             }
 
