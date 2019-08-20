@@ -4,36 +4,65 @@ import db.Company;
 import io.ParseCompany;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.util.Map;
 
 public class Okno extends JFrame{
-    static String path="C:\\users\\tony\\Desktop\\Company.xlsx".replace("\\","/");
+    static String path="C:\\Users\\work\\Desktop\\Company.xls".replace("\\","/");
     private DefaultListModel<String> dlm=new DefaultListModel<>();
+    private JLabel label;
+    private JLabel inf;
+
 
     private JTextField input=new JTextField();
-    private JTextArea textArea=new JTextArea();
 
     public Okno() throws Exception{
         super("Рассылка");
         this.setBounds(1,1,1300,500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        Container container=this.getContentPane();
+
         Map<String, Company> companyMap = ParseCompany.parce(path);
         for (Company c:companyMap.values()) {
             dlm.add(0, c.getCompanyName());
         }
-        JList<String> list=new JList<String>(dlm);
 
-        Container container=this.getContentPane();
-        container.setLayout(new GridLayout(0,3));
+
+        inf=new JLabel();
+        inf.setText(companyMap.toString());
+
+        /*for (Company c:companyMap.values()) {
+            labelOnHashMap.append(c.getCompanyName()+"\n"+c.getCompanyEmail()+"\n"+c.getCompanyNamber());
+
+        }*/
+        JList<String> list=new JList<String>(dlm);
+        System.out.println(list.getSelectedIndex());
+
+        list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        list.addListSelectionListener(
+                new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        Object listElement=list.getSelectedValue();
+                        System.out.println(listElement);
+                    }
+                }
+        );
+
+
+
+
+
+        label=new JLabel();
+
+        container.setLayout(new GridLayout(2,3));
         container.add(new JScrollPane(list));
-        textArea.append("Организация "+"\n");
-        textArea.append("Инн "+"\n");
-        textArea.append("Почтовый адресс "+"\n");
-        textArea.append("Электронная почта "+"\n");
-        textArea.append("Телефон "+"\n");
-        container.add(textArea);
+        container.add(label, BorderLayout.SOUTH);
+        container.add(new JScrollPane(inf));
+
 
 
 
