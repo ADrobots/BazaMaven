@@ -10,17 +10,27 @@ import java.awt.*;
 import java.util.Map;
 
 public class Okno extends JFrame{
-    static String path="C:\\Users\\tony\\Desktop\\Company.xlsx".replace("\\","/");
+    static String path="C:\\Users\\work\\Desktop\\Company.xls".replace("\\","/");
     private DefaultListModel<String> dlm=new DefaultListModel<>();
+    private JPanel panel=new JPanel();
     private JLabel label=new JLabel();
     private JLabel labelEmail=new JLabel();
+    private JTextArea inf=new JTextArea();
+    private JSplitPane rightSplitPane=new JSplitPane();
+    private JPanel rightTopPane=new JPanel();
+    private JPanel rightBottomPane=new JPanel();
+    private JPanel rightBottomInputPane=new JPanel();
+    private JTextField theme=new JTextField();
+    private JTextArea message=new JTextArea();
+    private JButton button=new JButton("send");;
+
 
 
     private JTextField input=new JTextField();
 
     public Okno() throws Exception{
         super("Рассылка");
-        this.setBounds(1,1,1300,500);
+        this.setBounds(1,1,700,300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container container=this.getContentPane();
@@ -47,7 +57,14 @@ public class Okno extends JFrame{
                         for (Company c:companyMap.values()) {
                             if (listElement.toString()==c.getCompanyName()){
                                 label.setText("Организация "+c.getCompanyName());
-                                labelEmail.setText("Эл.почта "+c.getCompanyEmail());
+                                labelEmail.setText(c.getCompanyEmail());
+                                inf.setText(
+                                        "Организация: "+c.getCompanyName()+"\n"+
+                                        "ИНН: "+c.getCompanyInn()+"\n"+
+                                        "Почтовый адрес: "+c.getCompanyMailingAdress()+"\n"+
+                                        "Электронная почта: "+c.getCompanyEmail()+"\n"+
+                                        "Телефон: "+c.getCompanyNamber()+"\n");
+                                inf.setEditable(false);
                             }
                         }
 
@@ -57,10 +74,44 @@ public class Okno extends JFrame{
         );
 
 
-        container.setLayout(new GridLayout(3,1));
-        container.add(new JScrollPane(list));
-        container.add(label, BorderLayout.CENTER);
-        container.add(labelEmail, BorderLayout.CENTER);
+        container.setLayout(new GridLayout(1,1));
+        container.add(new JScrollPane(list), FlowLayout.LEFT);
+        container.add(new JScrollPane(inf),FlowLayout.CENTER);
+        /*panel.add(label);
+        container.add(new JScrollPane(panel), FlowLayout.RIGHT);*/
+        rightSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
+        rightSplitPane.setTopComponent(rightTopPane);
+        rightSplitPane.setBottomComponent(rightBottomPane);
+
+        rightTopPane.add(theme);
+        rightTopPane.setLayout(new BoxLayout(rightTopPane, BoxLayout.Y_AXIS));
+        rightBottomPane.add(message);
+        rightBottomPane.setLayout(new BoxLayout(rightBottomPane, BoxLayout.Y_AXIS));
+        rightBottomPane.add(rightBottomInputPane);
+        rightBottomInputPane.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1000));
+        rightBottomInputPane.setLayout(new GridLayout(1,1));
+
+
+        labelEmail.setVerticalAlignment(SwingConstants.CENTER);
+        labelEmail.setHorizontalAlignment(SwingConstants.CENTER);
+        labelEmail.setVerticalTextPosition(SwingConstants.CENTER);
+        rightBottomInputPane.add(labelEmail);
+        rightBottomInputPane.add(button);
+
+
+
+
+
+
+
+        container.add(rightSplitPane);
+
+        /*pack();*/
+
+        /*container.add(label,FlowLayout.RIGHT);
+
+        container.add(labelEmail,FlowLayout.RIGHT);*/
+
 
 
 

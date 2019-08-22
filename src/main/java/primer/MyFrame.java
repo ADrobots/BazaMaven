@@ -44,7 +44,7 @@ public class MyFrame extends javax.swing.JFrame {
         getContentPane().add(splitPane);               // due to the GridLayout, our splitPane will now fill the whole window
 
         // let configure our splitPane:
-        splitPane.setOrientation(JSplitPane.HORIZONTAL_SPLIT);  // we want it to split the window verticaly
+        splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);  // we want it to split the window verticaly
         splitPane.setDividerLocation(450);                    // the initial position of the divider is 200 (our window is 400 pixels high)
         splitPane.setTopComponent(topPanel);                  // at the top we want our "topPanel"
         splitPane.setBottomComponent(bottomPanel);            // and at the bottom we want our "bottomPanel"
