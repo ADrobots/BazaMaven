@@ -1,12 +1,15 @@
 package primer;
 
 import db.Company;
+import emailsender.tls.Sender;
 import io.ParseCompany;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Map;
 
 public class Okno extends JFrame{
@@ -23,6 +26,9 @@ public class Okno extends JFrame{
     private JTextField theme=new JTextField();
     private JTextArea message=new JTextArea();
     private JButton button=new JButton("send");;
+
+
+    public static Sender tlsSender=new Sender("prommetall66@gmail.com", "ronaldo_85");
 
 
 
@@ -85,7 +91,7 @@ public class Okno extends JFrame{
 
         rightTopPane.add(theme);
         rightTopPane.setLayout(new BoxLayout(rightTopPane, BoxLayout.Y_AXIS));
-        rightBottomPane.add(message);
+        rightBottomPane.add(new JScrollPane(message), FlowLayout.CENTER, FlowLayout.LEFT);
         rightBottomPane.setLayout(new BoxLayout(rightBottomPane, BoxLayout.Y_AXIS));
         rightBottomPane.add(rightBottomInputPane);
         rightBottomInputPane.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1000));
@@ -97,6 +103,24 @@ public class Okno extends JFrame{
         labelEmail.setVerticalTextPosition(SwingConstants.CENTER);
         rightBottomInputPane.add(labelEmail);
         rightBottomInputPane.add(button);
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    tlsSender.send(theme.getText(), message.getText()+"\n=============================================\n" +
+                            "С уважением, менеджер ООО \"ПКП \"Промметалл\"\"\n" +
+                            "Дмитриенко Антон Витальевич\n" +
+                            "(343)216-28-22, +7-912-209-28-11\n" +
+                            "\n" +
+                            "Посетите наш Сайт: www.pkp96.ru","prommetall66@gmail.com", labelEmail.getText());
+                    theme.setText(null);
+                    message.setText(null);
+                }catch (Exception ex){
+                    System.out.println(ex);
+                }
+            }
+        });
 
 
 
