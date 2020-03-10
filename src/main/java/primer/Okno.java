@@ -3,6 +3,7 @@ package primer;
 import db.Company;
 import emailsender.tls.Sender;
 import io.ParseCompany;
+import io.WriteFile;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -10,10 +11,12 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.util.Date;
 import java.util.Map;
 
 public class Okno extends JFrame{
-    static String path="C:\\Users\\work\\Desktop\\Company.xls".replace("\\","/");
+    static String path="C:\\Users\\work\\Desktop\\java\\BazaMaven\\src\\main\\java\\db\\Company.xls".replace("\\","/");
     private DefaultListModel<String> dlm=new DefaultListModel<>();
     private JPanel panel=new JPanel();
     private JLabel label=new JLabel();
@@ -29,6 +32,7 @@ public class Okno extends JFrame{
 
 
     public static Sender tlsSender=new Sender("prommetall66@gmail.com", "ronaldo_85");
+    public static WriteFile writeFile;
 
 
 
@@ -114,8 +118,21 @@ public class Okno extends JFrame{
                             "(343)216-28-22, +7-912-209-28-11\n" +
                             "\n" +
                             "Посетите наш Сайт: www.pkp96.ru","prommetall66@gmail.com", labelEmail.getText());
+                    try(FileWriter writer=new FileWriter("C:/Users/work/Desktop/ДОКУМЕНТЫ/2019/"
+                            +labelEmail.getText()+".txt", true)){
+
+                        writer.write("\r\n"+new Date().toString());
+                        writer.append("\r\n");
+                        writer.write("Тема письма: "+theme.getText()+"\r\nСообщение:"+message.getText()+"\r\n");
+
+
+                    }catch (Exception exept){
+                        System.out.println(exept);
+                    }
+
                     theme.setText(null);
                     message.setText(null);
+
                 }catch (Exception ex){
                     System.out.println(ex);
                 }
