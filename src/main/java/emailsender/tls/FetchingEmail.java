@@ -30,7 +30,7 @@ public class FetchingEmail {
         try {
             // create properties field
             Properties properties = new Properties();
-            properties.put("mail.store.protocol", "pop3");
+            properties.put("mail.store.protocol", "imaps");
             properties.put("mail.pop3.host", pop3Host);
             properties.put("mail.pop3.port", "995");
             properties.put("mail.pop3.starttls.enable", "true");
@@ -38,7 +38,7 @@ public class FetchingEmail {
             // emailSession.setDebug(true);
 
             // create the POP3 store object and connect with the pop server
-            Store store = emailSession.getStore("pop3s");
+            Store store = emailSession.getStore("imaps");
 
             store.connect(pop3Host, user, password);
 
@@ -81,7 +81,7 @@ public class FetchingEmail {
     }
     public static void main(String[] args) {
 
-        String host = "pop3.gmail.com";// change accordingly
+        String host = "imap.gmail.com";// change accordingly
         String mailStoreType = "pop3";
         String username =
                 "prommetall66@gmail.com";// change accordingly
