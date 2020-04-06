@@ -29,6 +29,7 @@ public class Okno extends JFrame{
     private JTextField theme=new JTextField();
     private JTextArea message=new JTextArea();
     private JButton button=new JButton("send");;
+    private JLabel fetchMailLabel=new JLabel();
 
 
     public static Sender tlsSender=new Sender("prommetall66@gmail.com", "ronaldo_85");
@@ -146,6 +147,8 @@ public class Okno extends JFrame{
 
 
         container.add(rightSplitPane);
+
+        container.add(fetchMailLabel);
 
         /*pack();*/
 

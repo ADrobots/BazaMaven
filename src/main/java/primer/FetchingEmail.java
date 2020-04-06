@@ -1,12 +1,15 @@
-package emailsender.tls;
+package primer;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Date;
 import java.util.Properties;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.Folder;
@@ -52,11 +55,6 @@ public class FetchingEmail {
 
             for (int i = 0; i < messages.length; i++) {
                 Message message = messages[i];
-                System.out.println(message.getFrom()[0]);
-//                Matcher m= Pattern.compile("<.+\\>$").matcher(message.getFrom()[0].toString());
-
-
-
                 System.out.println("---------------------------------");
                 writePart(message);
                 String line = reader.readLine();
@@ -124,44 +122,44 @@ public class FetchingEmail {
         }
         //check if the content is a nested message
         else if (p.isMimeType("message/rfc822")) {
-//            System.out.println("This is a Nested Message");
-//            System.out.println("---------------------------");
-//            writePart((Part) p.getContent());
+            System.out.println("This is a Nested Message");
+            System.out.println("---------------------------");
+            writePart((Part) p.getContent());
         }
         //check if the content is an inline image
         else if (p.isMimeType("image/jpeg")) {
-//            System.out.println("--------> image/jpeg");
-//            Object o = p.getContent();
-//
-//            InputStream x = (InputStream) o;
-//            // Construct the required byte array
-//            byte[] bArray=null;
-//            int i;
-//            System.out.println("x.length = " + x.available());
-//            while ((i = (int) ((InputStream) x).available()) > 0) {
-//                int result = (int) (((InputStream) x).read(bArray));
-//                if (result == -1){
-//                    i = 0;}
-//                bArray = new byte[x.available()];
-//
-//                break;
-//            }
-//            FileOutputStream f2 = new FileOutputStream("/tmp/image.jpg");
-//            f2.write(bArray);
+            System.out.println("--------> image/jpeg");
+            Object o = p.getContent();
+
+            InputStream x = (InputStream) o;
+            // Construct the required byte array
+            byte[] bArray=null;
+            int i;
+            System.out.println("x.length = " + x.available());
+            while ((i = (int) ((InputStream) x).available()) > 0) {
+                int result = (int) (((InputStream) x).read(bArray));
+                if (result == -1){
+                    i = 0;}
+                bArray = new byte[x.available()];
+
+                break;
+            }
+            FileOutputStream f2 = new FileOutputStream("/tmp/image.jpg");
+            f2.write(bArray);
         }
         else if (p.getContentType().contains("image/")) {
-//            System.out.println("content type" + p.getContentType());
-//            File f = new File("image" + new Date().getTime() + ".jpg");
-//            DataOutputStream output = new DataOutputStream(
-//                    new BufferedOutputStream(new FileOutputStream(f)));
-//            com.sun.mail.util.BASE64DecoderStream test =
-//                    (com.sun.mail.util.BASE64DecoderStream) p
-//                            .getContent();
-//            byte[] buffer = new byte[1024];
-//            int bytesRead;
-//            while ((bytesRead = test.read(buffer)) != -1) {
-//                output.write(buffer, 0, bytesRead);
-
+            System.out.println("content type" + p.getContentType());
+            File f = new File("image" + new Date().getTime() + ".jpg");
+            DataOutputStream output = new DataOutputStream(
+                    new BufferedOutputStream(new FileOutputStream(f)));
+            com.sun.mail.util.BASE64DecoderStream test =
+                    (com.sun.mail.util.BASE64DecoderStream) p
+                            .getContent();
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = test.read(buffer)) != -1) {
+                output.write(buffer, 0, bytesRead);
+            }
         }
         else {
             Object o = p.getContent();
@@ -171,13 +169,13 @@ public class FetchingEmail {
                 System.out.println((String) o);
             }
             else if (o instanceof InputStream) {
-//                System.out.println("This is just an input stream");
-//                System.out.println("---------------------------");
-//                InputStream is = (InputStream) o;
-//                is = (InputStream) o;
-//                int c;
-//                while ((c = is.read()) != -1)
-//                    System.out.write(c);
+                System.out.println("This is just an input stream");
+                System.out.println("---------------------------");
+                InputStream is = (InputStream) o;
+                is = (InputStream) o;
+                int c;
+                while ((c = is.read()) != -1)
+                    System.out.write(c);
             }
             else {
                 System.out.println("This is an unknown type");
