@@ -20,17 +20,16 @@ public class FetchingEmailTesting {
         Message[] messages=folder.getMessages();
 
         //отправитель
-        String sender="a@bvb.kz";
+        String sender="sega131180@yandex.ru";
 
-        for (int i=0; i<20; i++){
+        for (int i=0; i<messages.length; i++){
             Message message=messages[i];
             for (Address addr:message.getFrom()) {
                 Matcher matcher=Pattern.compile("<(.+)\\>$").matcher(addr.toString());
                 while (matcher.find()){
                     System.out.println(matcher.group(1));
                     if (matcher.group(1).equals(sender)){
-                        System.out.println("Sender: "+sender);
-                        System.out.println("Content: \n"+message.getContent().toString());
+                        System.out.println("\n==============================\nSender:\n"+sender+"\n==============================");
                         readEnvelope(message);
                         //System.exit(1);
                     }
@@ -44,28 +43,31 @@ public class FetchingEmailTesting {
 
     }
 
-    static void readEnvelope(Message m) throws Exception{
+    static void readEnvelope(Part m) throws Exception{
+        System.out.println("Content-type: "+m.getContentType()+"\n==============================");
         if (m.isMimeType("multipart/*")){
             Multipart multipart=(Multipart)m.getContent();
 
             for (int i=0; i<multipart.getCount(); i++){
                 BodyPart part=multipart.getBodyPart(i);
 
-                if (part.isMimeType("text/plain")){
+                if (part.isMimeType("text/*")){
                     System.out.println(part.getContent().toString());
                 }else if(Part.ATTACHMENT.equalsIgnoreCase(part.getDescription())){
                     String fileName= MimeUtility.decodeText(part.getFileName());
                     InputStream is=part.getInputStream();
                 }
             }
-        }else if(m.isMimeType("text/plain")){
+        }else if(m.isMimeType("text/*")){
             System.out.println(m.getContent().toString());
         }
+
+        System.out.println("============================================================\n");
 
     }
 
     public static void main(String[] args) throws Exception{
-        fetch("imap.gmail.com", "pop3", "prommetall66@gmail.com", "ronaldo_85");
+        fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747");
     }
 
 }
