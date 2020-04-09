@@ -1,6 +1,7 @@
 package primer;
 
 import db.Company;
+import emailsender.tls.FetchingEmailTesting;
 import emailsender.tls.Sender;
 import io.ParseCompany;
 import io.WriteFile;
@@ -34,6 +35,7 @@ public class Okno extends JFrame{
 
     public static Sender tlsSender=new Sender("prommetall66@gmail.com", "ronaldo_85");
     public static WriteFile writeFile;
+    public FetchingEmailTesting fetchingEmailTesting;
 
 
 
@@ -61,14 +63,22 @@ public class Okno extends JFrame{
         System.out.println(dlm.get(0));
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         list.addListSelectionListener(
-                new ListSelectionListener() {
+                new ListSelectionListener(){
                     @Override
-                    public void valueChanged(ListSelectionEvent e) {
+                    public void valueChanged(ListSelectionEvent e){
                         Object listElement=list.getSelectedValue();
                         for (Company c:companyMap.values()) {
                             if (listElement.toString()==c.getCompanyName()){
                                 label.setText("Организация "+c.getCompanyName());
                                 labelEmail.setText(c.getCompanyEmail());
+                                fetchMailLabel.setText(c.getCompanyName());
+                                try{
+                                    fetchMailLabel.setText(fetchingEmailTesting.justify(fetchingEmailTesting.fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747", c.getCompanyEmail()),25));
+                                    fetchMailLabel.setText("hello");
+                                }catch (Exception e1){
+                                    System.out.println(e1);
+                                }
+
                                 inf.setText(
                                         "Организация: "+c.getCompanyName()+"\n"+
                                         "ИНН: "+c.getCompanyInn()+"\n"+
