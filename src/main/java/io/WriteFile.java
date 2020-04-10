@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class WriteFile {
 
-    private String path="C:/Users/work/Desktop/ДОКУМЕНТЫ/2019";
+    private String path="C:/Users/work/Desktop/";
     public void writeFiles(String text, String company){
         try {
             Files.write(Paths.get(path + "/" + company + ".txt"), text.toString().getBytes());

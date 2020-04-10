@@ -26,13 +26,15 @@ public class FetchingEmailTesting {
 
         for (int i=0; i<10; i++){
             Message message=messages[i];
+            System.out.println(message.getReceivedDate());
             for (Address addr:message.getFrom()) {
                 Matcher matcher=Pattern.compile("<(.+)\\>$").matcher(addr.toString());
                 while (matcher.find()){
                     System.out.println(matcher.group(1));
                     if (matcher.group(1).equals(sender)){
                         //System.out.println("\n==============================\nSender:\n"+sender+"\n==============================");
-                        bufferSender.append("\n==============================\nSender:\n"+sender+"\n==============================");
+                        bufferSender.append("\n==============================\nSender:\n"+sender+"\n==============================\n");
+                        bufferSender.append("Date: "+message.getReceivedDate());
                         bufferSender.append(readEnvelope(message));
                         //System.exit(1);
                     }
@@ -93,7 +95,11 @@ public class FetchingEmailTesting {
 
     public static void main(String[] args) throws Exception{
         //fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","f3736595@yandex.ru");
-        System.out.println(fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","f3736595@yandex.ru"));
+
+        String s=fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","f3736595@yandex.ru");
+
+        if (s instanceof String) System.out.println(s);
+
     }
 
 }

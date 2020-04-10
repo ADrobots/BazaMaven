@@ -20,7 +20,7 @@ public class Okno extends JFrame{
     static String path="C:\\Users\\work\\Desktop\\java\\BazaMaven\\src\\main\\java\\db\\Company.xls".replace("\\","/");
     private DefaultListModel<String> dlm=new DefaultListModel<>();
     private JPanel panel=new JPanel();
-    private JLabel label=new JLabel();
+    private JLabel theChoisListlabel=new JLabel();
     private JLabel labelEmail=new JLabel();
     private JTextArea inf=new JTextArea();
     private JSplitPane rightSplitPane=new JSplitPane();
@@ -30,8 +30,7 @@ public class Okno extends JFrame{
     private JTextField theme=new JTextField();
     private JTextArea message=new JTextArea();
     private JButton button=new JButton("send");;
-    private JLabel fetchMailLabel=new JLabel();
-
+    private JTextArea fetchMailLabel=new JTextArea();
 
     public static Sender tlsSender=new Sender("prommetall66@gmail.com", "ronaldo_85");
     public static WriteFile writeFile;
@@ -69,16 +68,9 @@ public class Okno extends JFrame{
                         Object listElement=list.getSelectedValue();
                         for (Company c:companyMap.values()) {
                             if (listElement.toString()==c.getCompanyName()){
-                                label.setText("Организация "+c.getCompanyName());
+                                theChoisListlabel.setText("Организация "+c.getCompanyName());
                                 labelEmail.setText(c.getCompanyEmail());
-                                fetchMailLabel.setText(c.getCompanyName());
-                                try{
-                                    fetchMailLabel.setText(fetchingEmailTesting.justify(fetchingEmailTesting.fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747", c.getCompanyEmail()),25));
-                                    fetchMailLabel.setText("hello");
-                                }catch (Exception e1){
-                                    System.out.println(e1);
-                                }
-
+                                //fetchMailLabel.setText(c.getCompanyName());
                                 inf.setText(
                                         "Организация: "+c.getCompanyName()+"\n"+
                                         "ИНН: "+c.getCompanyInn()+"\n"+
@@ -86,7 +78,15 @@ public class Okno extends JFrame{
                                         "Электронная почта: "+c.getCompanyEmail()+"\n"+
                                         "Телефон: "+c.getCompanyNamber()+"\n");
                                 inf.setEditable(false);
+                                try{
+                                    //fetchMailLabel.setText("hello");
+                                    fetchMailLabel.setText(fetchingEmailTesting.fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747", c.getCompanyEmail()));
+
+                                }catch (Exception e1){
+                                    System.out.println(e1);
+                                }
                             }
+
                         }
 
 
@@ -98,8 +98,7 @@ public class Okno extends JFrame{
         container.setLayout(new GridLayout(1,1));
         container.add(new JScrollPane(list), FlowLayout.LEFT);
         container.add(new JScrollPane(inf),FlowLayout.CENTER);
-        /*panel.add(label);
-        container.add(new JScrollPane(panel), FlowLayout.RIGHT);*/
+
         rightSplitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
         rightSplitPane.setTopComponent(rightTopPane);
         rightSplitPane.setBottomComponent(rightBottomPane);
@@ -150,48 +149,9 @@ public class Okno extends JFrame{
             }
         });
 
-
-
-
-
-
-
         container.add(rightSplitPane);
 
-        container.add(fetchMailLabel);
-
-        /*pack();*/
-
-        /*container.add(label,FlowLayout.RIGHT);
-
-        container.add(labelEmail,FlowLayout.RIGHT);*/
-
-
-
-
-
-
-        /*super("Рассылка");
-        setBounds(100,100,750,750);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //Создание панели
-        JPanel mainPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
-
-        //Наполнение панели данными
-        Map<String, Company> companyMap = ParseCompany.parce(path);
-        for (Company c:companyMap.values()) {
-            dlm.add(0, c.getCompanyName());
-        }
-        JList<String> list=new JList<String>(dlm);
-
-        //размещение компонентов в панели
-
-        mainPanel.add(new JScrollPane(list));
-
-        setContentPane(mainPanel);
-        //вывод окна
-        setSize(600,600);
-        setVisible(true);*/
+        container.add(new JScrollPane(fetchMailLabel));
 
     }
 }
