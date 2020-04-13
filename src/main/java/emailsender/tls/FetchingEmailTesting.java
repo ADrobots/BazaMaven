@@ -3,6 +3,8 @@ package emailsender.tls;
 import javax.mail.*;
 import javax.mail.internet.MimeUtility;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -97,8 +99,6 @@ public class FetchingEmailTesting {
         //fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","f3736595@yandex.ru");
 
         String s=fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","f3736595@yandex.ru");
-
-        if (s instanceof String) System.out.println(s);
 
     }
 

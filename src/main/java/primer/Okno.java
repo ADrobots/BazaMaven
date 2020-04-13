@@ -1,6 +1,7 @@
 package primer;
 
 import db.Company;
+import emailsender.inbox.EmailSearcherFrom;
 import emailsender.tls.FetchingEmailTesting;
 import emailsender.tls.Sender;
 import io.ParseCompany;
@@ -80,7 +81,7 @@ public class Okno extends JFrame{
                                 inf.setEditable(false);
                                 try{
                                     //fetchMailLabel.setText("hello");
-                                    fetchMailLabel.setText(fetchingEmailTesting.fetch("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747", c.getCompanyEmail()));
+                                    fetchMailLabel.setText(EmailSearcherFrom.searchEmail("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747", c.getCompanyEmail()));
 
                                 }catch (Exception e1){
                                     System.out.println(e1);
