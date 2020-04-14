@@ -1,7 +1,11 @@
 package emailsender.inbox;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import javax.mail.*;
 import javax.mail.internet.MimeUtility;
+import javax.mail.search.FlagTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.SearchTerm;
 import java.io.InputStream;
@@ -70,8 +74,29 @@ public class EmailSearcherFrom {
                     InputStream is = part.getInputStream();
                 }
             }
-        } else if (m.isMimeType("text/*")) {
+        } else if (m.isMimeType("text/plain")) {
+            String sBody=null;
+            try{
+                Multipart multipart=(Multipart)m.getContent();
+                for (int i=0; i<multipart.getCount(); i++){
+                    BodyPart bodyPart=multipart.getBodyPart(i);
+                    String sMultiBody=(String)m.getContent();
+                    sBody=sBody+sMultiBody;
+                    System.out.println(sBody);
+                    bufferEnvelope.append(sBody);
+                }
+            }catch (ClassCastException e){
+                sBody=(String)m.getContent();
+                System.out.println(sBody);
+                bufferEnvelope.append(sBody);
+            }
+
             bufferEnvelope.append(m.getContent().toString());
+        }else if(m.isMimeType("text/html")){
+            String htmlToString;
+            Document document= Jsoup.parse(m.getContent().toString());
+            htmlToString=document.body().text();
+            bufferEnvelope.append(htmlToString);
         }
 
         return bufferEnvelope.toString();
@@ -96,10 +121,19 @@ public class EmailSearcherFrom {
 
     public static Message[] getMessages(String from, Folder folder) throws Exception {
         Message[] messages = null;
+        Message[] noSeenMessage=new Message[50];
 
         SearchTerm totalTerm = new FromStringTerm(from);
 
-        messages = folder.search(totalTerm);
+        //messages = folder.search(totalTerm);
+
+        messages=folder.search((new FlagTerm(new Flags(Flags.Flag.SEEN), false)));
+
+        for (Message msg:messages) {
+           if (msg.getFrom().equals(from)){
+
+           }
+        }
 
         return messages;
     }

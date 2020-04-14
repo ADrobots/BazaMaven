@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2de5b8bf-5004-4ace-a359-172995bf1bd8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherFrom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/emailsender/inbox/AutomaticAnswer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/primer/FetchParceHtml.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/primer/ParceHtml.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/emailsender/tls/FetchingEmailTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emailsender/tls/FetchingEmailTesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/primer/Okno.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/primer/Okno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherFrom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherFrom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/primer/Okno$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/primer/Okno$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/primer/Okno$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/primer/Okno$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/primer/Okno.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/primer/Okno.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,19 +24,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primer/Run.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/primer/FetchParceHtml.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/tls/FetchingEmailTesting.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="170">
+              <caret line="73" column="93" selection-start-line="73" selection-start-column="82" selection-end-line="73" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,19 +36,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/primer/Okno.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/inbox/AutomaticAnswer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="75" column="64" selection-start-line="75" selection-start-column="64" selection-end-line="75" selection-end-column="64" />
+            <state relative-caret-position="85">
+              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/ReadFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherFrom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="262">
+              <caret line="133" column="28" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/primer/ParceHtml.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,7 +122,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ParseCompany.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/db/Company.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/emailsender/tls/Sender.java" />
         <option value="$PROJECT_DIR$/src/main/java/primer/Run.java" />
         <option value="$PROJECT_DIR$/src/main/java/emailsender/tls/FetchMail.java" />
@@ -101,8 +132,13 @@
         <option value="$PROJECT_DIR$/src/main/java/io/WriteFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcher.java" />
         <option value="$PROJECT_DIR$/src/main/java/emailsender/tls/FetchingEmailTesting.java" />
-        <option value="$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherFrom.java" />
         <option value="$PROJECT_DIR$/src/main/java/primer/Okno.java" />
+        <option value="$PROJECT_DIR$/src/main/java/primer/fetchParceHtml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/primer/ParceHtml.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/primer/FetchParceHtml.java" />
+        <option value="$PROJECT_DIR$/src/main/java/emailsender/inbox/AutomaticAnswer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherFrom.java" />
       </list>
     </option>
   </component>
@@ -118,7 +154,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="800" />
+    <option name="x" value="804" />
+    <option name="width" value="796" />
     <option name="height" value="870" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -184,15 +221,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="emailsender" type="462c0819:PsiDirectoryNode" />
-              <item name="tls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BazaMaven" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BazaMaven" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -203,6 +231,14 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="io" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BazaMaven" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BazaMaven" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="primer" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -212,7 +248,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586779907706" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586866756727" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../filosofiaJava" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -239,11 +275,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Run">
-    <configuration name="EmailSearcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.EmailSearcherFrom">
+    <configuration name="AutomaticAnswer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="emailsender.inbox.EmailSearcher" />
+      <option name="MAIN_CLASS_NAME" value="emailsender.inbox.AutomaticAnswer" />
       <module name="BazaMaven" />
       <extension name="coverage">
         <pattern>
@@ -270,14 +306,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FetchingEmail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="FetchParceHtml" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="emailsender.tls.FetchingEmail" />
+      <option name="MAIN_CLASS_NAME" value="primer.FetchParceHtml" />
       <module name="BazaMaven" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="emailsender.tls.*" />
+          <option name="PATTERN" value="primer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -285,14 +321,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FetchingEmailTesting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="ParceHtml" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="emailsender.tls.FetchingEmailTesting" />
+      <option name="MAIN_CLASS_NAME" value="primer.ParceHtml" />
       <module name="BazaMaven" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="emailsender.tls.*" />
+          <option name="PATTERN" value="primer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -324,11 +360,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Run" />
         <item itemvalue="Application.EmailSearcherFrom" />
-        <item itemvalue="Application.EmailSearcher" />
-        <item itemvalue="Application.FetchingEmailTesting" />
-        <item itemvalue="Application.FetchingEmail" />
+        <item itemvalue="Application.AutomaticAnswer" />
+        <item itemvalue="Application.Run" />
+        <item itemvalue="Application.FetchParceHtml" />
+        <item itemvalue="Application.ParceHtml" />
       </list>
     </recent_temporary>
   </component>
@@ -385,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586520699349</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add emailSearcherForm">
+      <created>1586780095123</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1586780095124</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -401,7 +444,7 @@
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.174375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -410,8 +453,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.378866" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.47293815" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.36984536" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292683" />
@@ -503,7 +546,8 @@
     <MESSAGE value="create FetchingMailTesting" />
     <MESSAGE value="add imap protocol" />
     <MESSAGE value="lineformat" />
-    <option name="LAST_COMMIT_MESSAGE" value="lineformat" />
+    <MESSAGE value="add emailSearcherForm" />
+    <option name="LAST_COMMIT_MESSAGE" value="add emailSearcherForm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -542,30 +586,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.17/poi-3.17.jar!/org/apache/poi/poifs/common/POIFSBigBlockSize.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#554#555#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.17/poi-3.17.jar!/org/apache/poi/util/ShortField.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.17/poi-3.17.jar!/org/apache/poi/poifs/storage/HeaderBlock.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.17/poi-3.17.jar!/org/apache/poi/util/IntegerField.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -685,13 +705,6 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/LayoutManager.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/Container.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/javax/swing/DefaultListModel.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ThinkInJava4/src/strings/JGrep.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -733,13 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2465">
           <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
@@ -802,32 +808,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/WriteFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/sun/mail/javax.mail/1.5.6/javax.mail-1.5.6.jar!/com/sun/mail/imap/IMAPFolder.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="1491" selection-start-line="1491" selection-end-line="1491" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="121" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#541#704#0" expanded="true" />
-            <element signature="e#703#704#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -855,13 +839,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/ReadFile.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        <state relative-caret-position="-187">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/tls/FetchingEmailTesting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="97" column="45" selection-start-line="97" selection-start-column="45" selection-end-line="97" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primer/Okno.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="71" column="41" lean-forward="true" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -872,27 +870,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherFrom.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/WriteFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="221">
+          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="14" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/primer/Okno.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="75" column="64" selection-start-line="75" selection-start-column="64" selection-end-line="75" selection-end-column="64" />
+        <state relative-caret-position="463">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/tls/FetchingEmailTesting.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/ReadFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="238">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherNoUse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primer/FetchParceHtml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="73" column="93" selection-start-line="73" selection-start-column="82" selection-end-line="73" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/primer/ParceHtml.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/inbox/AutomaticAnswer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/emailsender/inbox/EmailSearcherFrom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="133" column="28" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
