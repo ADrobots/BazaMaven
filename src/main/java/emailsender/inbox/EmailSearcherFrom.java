@@ -1,5 +1,6 @@
 package emailsender.inbox;
 
+import emailsender.tls.Sender;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -22,35 +23,63 @@ public class EmailSearcherFrom {
         Folder folder = store.getFolder("INBOX");
         folder.open(Folder.READ_ONLY);
 
-        Message[] messages = getMessages(keyword, folder);
+//        Message[] messages = getMessages(keyword, folder);
 
         StringBuffer bufferSender = new StringBuffer();
         Pattern p=Pattern.compile("<(.+)\\>$");
 
-        for (int i = 0; i < messages.length; i++) {
-            Address address = messages[i].getFrom()[0];
+        Message[] noSeenMessage=folder.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+        int count=0;
+
+        Sender tlsSender=new Sender("prommetall66@gmail.com","ronaldo_85");
+
+
+        for (Message msg:noSeenMessage) {
+            Address address = msg.getFrom()[0];
             Matcher matcher = p.matcher(address.toString());
-            while (matcher.find()) {
-//                    System.out.println("Отправитель: " + matcher.group(1));
+
+            while (matcher.find()){
+                if (matcher.group(1).equals(keyword)) {
+                    bufferSender.append("Письмо # "+ ++count +"\n");
+                    bufferSender.append("Дата \n"+msg.getSentDate()+" \n");
                     bufferSender.append("Отправитель: " + matcher.group(1)+"\n");
-
+                    bufferSender.append("Тема: " + msg.getSubject() + "\n");
+                    bufferSender.append("Content-type: " + msg.getContentType() + "\n");
+                    bufferSender.append("Сообщение: \n" + readEnvelope(msg) + "\n\n");
+                    tlsSender.send("Письмо # "+count, "в ответ на письмо от "+msg.getSentDate(),"","prommetall66@gmail.com");
+                }
             }
-            String msgSubject = messages[i].getSubject();
-//            System.out.println("Тема: " + msgSubject);
-            bufferSender.append("Тема: " + msgSubject + "\n");
-
-            String msgType = messages[i].getContentType();
-//            System.out.println("Content-type: " + msgType);
-            bufferSender.append("Content-type: " + msgType + "\n");
-
-            String msgContent = messages[i].getContent().toString();
-//            System.out.println("Сообщение: \n" + msgContent);
-            bufferSender.append("Сообщение: \n" + readEnvelope(messages[i]) + "\n\n");
-            System.out.println();
-
-
-
         }
+
+
+
+
+//        for (int i = 0; i < messages.length; i++) {
+//            Address address = messages[i].getFrom()[0];
+//            Matcher matcher = p.matcher(address.toString());
+//
+//
+//            while (matcher.find()) {
+////                    System.out.println("Отправитель: " + matcher.group(1));
+//                    bufferSender.append("Отправитель: " + matcher.group(1)+"\n");
+//
+//            }
+//            String msgSubject = messages[i].getSubject();
+////            System.out.println("Тема: " + msgSubject);
+//            bufferSender.append("Тема: " + msgSubject + "\n");
+//
+//            String msgType = messages[i].getContentType();
+////            System.out.println("Content-type: " + msgType);
+//            bufferSender.append("Content-type: " + msgType + "\n");
+//
+//            String msgContent = messages[i].getContent().toString();
+////            System.out.println("Сообщение: \n" + msgContent);
+//            bufferSender.append("Сообщение: \n" + readEnvelope(messages[i]) + "\n\n");
+//            System.out.println();
+//
+//
+//
+//        }
 
         folder.close(false);
         store.close();
@@ -144,7 +173,7 @@ public class EmailSearcherFrom {
 
     public static void main(String[] args) throws Exception{
         EmailSearcherFrom esf=new EmailSearcherFrom();
-        System.out.println(esf.searchEmail("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","f3736595@yandex.ru"));
+        System.out.println(esf.searchEmail("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","prommetall66@gmail.com"));
     }
 }
 
