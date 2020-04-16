@@ -51,36 +51,6 @@ public class EmailSearcherFrom {
             }
         }
 
-
-
-
-//        for (int i = 0; i < messages.length; i++) {
-//            Address address = messages[i].getFrom()[0];
-//            Matcher matcher = p.matcher(address.toString());
-//
-//
-//            while (matcher.find()) {
-////                    System.out.println("Отправитель: " + matcher.group(1));
-//                    bufferSender.append("Отправитель: " + matcher.group(1)+"\n");
-//
-//            }
-//            String msgSubject = messages[i].getSubject();
-////            System.out.println("Тема: " + msgSubject);
-//            bufferSender.append("Тема: " + msgSubject + "\n");
-//
-//            String msgType = messages[i].getContentType();
-////            System.out.println("Content-type: " + msgType);
-//            bufferSender.append("Content-type: " + msgType + "\n");
-//
-//            String msgContent = messages[i].getContent().toString();
-////            System.out.println("Сообщение: \n" + msgContent);
-//            bufferSender.append("Сообщение: \n" + readEnvelope(messages[i]) + "\n\n");
-//            System.out.println();
-//
-//
-//
-//        }
-
         folder.close(false);
         store.close();
 
@@ -173,7 +143,7 @@ public class EmailSearcherFrom {
 
     public static void main(String[] args) throws Exception{
         EmailSearcherFrom esf=new EmailSearcherFrom();
-        System.out.println(esf.searchEmail("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","prommetall66@gmail.com"));
+        System.out.println(esf.searchEmail("imap.timeweb.ru", "imap", "dav@pkp96.ru", "boening_747","dav@pkp96.ru"));
     }
 }
 
